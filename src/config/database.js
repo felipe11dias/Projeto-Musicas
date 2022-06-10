@@ -7,8 +7,8 @@ module.exports = {
   database: 'projeto_musicas',
   // Padronizar nome de tabelas e colunas
   define: {
-      timestamps: true,
-      underscored: true,
-      underscoredAll: true
+    timestamps: true,
+    underscored: true,
+    underscoredAll: true,
   }
 };

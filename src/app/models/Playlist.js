@@ -4,8 +4,8 @@ import { Sequelize, Model } from 'sequelize';
 class Playlist extends Model {
     static init(sequelize) {
         super.init({
-            id: Sequelize.INTEGER,
-            nome: Sequelize.STRING,
+            name: Sequelize.STRING,
+            user_id: Sequelize.INTEGER
         },
         {
             sequelize
@@ -14,6 +14,10 @@ class Playlist extends Model {
 
     static associate(models) {
         
+        /*this.hasMany(models.Music, {
+            foreignKey: 'id_musica',
+            as: 'musicas'
+        });*/
     }
 }
 

@@ -4,9 +4,8 @@ import { Sequelize, Model } from 'sequelize';
 class User extends Model {
     static init(sequelize) {
         super.init({
-            id: Sequelize.INTEGER,
-            nome: Sequelize.STRING,
-            idade: Sequelize.INTEGER
+            name: Sequelize.STRING,
+            age: Sequelize.INTEGER,
         },
         {
             sequelize
@@ -14,7 +13,11 @@ class User extends Model {
     }
 
     static associate(models) {
-        //this.belongsTo(models.File , { foreignKey: 'avatar_id', as: 'avatar' });
+        this.hasMany(models.Playlist, {
+            foreignKey: 'user_id',
+            as: 'playlists'
+        });
+        models.Playlist.belongsTo(models.User, { foreignKey: 'user_id', as: 'users'}); 
     }
 }
 
